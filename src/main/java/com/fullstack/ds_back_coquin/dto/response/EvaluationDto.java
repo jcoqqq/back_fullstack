@@ -1,4 +1,4 @@
-package com.fullstack.ds_back_coquin.dto;
+package com.fullstack.ds_back_coquin.dto.response;
 
 import lombok.Data;
 

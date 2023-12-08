@@ -1,5 +1,6 @@
-package com.fullstack.ds_back_coquin.dto;
+package com.fullstack.ds_back_coquin.dto.response;
 
+import com.fullstack.ds_back_coquin.dto.TagEnum;
 import lombok.Data;
 
 import java.io.File;
