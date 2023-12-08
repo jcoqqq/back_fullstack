@@ -2,6 +2,7 @@ package com.fullstack.ds_back_coquin.service;
 
 import com.fullstack.ds_back_coquin.domain.Restaurant;
 import com.fullstack.ds_back_coquin.dto.TagEnum;
+import com.fullstack.ds_back_coquin.dto.request.AddRestaurantDto;
 import com.fullstack.ds_back_coquin.exception.InvalidValueException;
 import com.fullstack.ds_back_coquin.exception.ResourceNotFoundException;
 import com.fullstack.ds_back_coquin.repository.RestaurantRepository;
@@ -19,20 +20,20 @@ public class RestaurantService {
     private RestaurantRepository restaurantRepository;
 
     public Restaurant getRestaurantById(Integer id) {
-        return restaurantRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Evaluation with id " + id + " + not found"));
+        return restaurantRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Restaurant with id " + id + " + not found"));
     }
 
     public List<Restaurant> getAllRestaurant() {
         return restaurantRepository.findAll();
     }
 
-    public Restaurant ajouterRestaurant(String nom, String adresse) {
-        if (nom == null || adresse == null)
+    public Restaurant ajouterRestaurant(AddRestaurantDto addRestaurantDto) {
+        if (addRestaurantDto.getNom() == null || addRestaurantDto.getAdresse() == null)
             throw new InvalidValueException("Pas bien, ça doit pas être nul");
 
         Restaurant restaurant = new Restaurant();
-        restaurant.setAdresse(adresse);
-        restaurant.setNom(nom);
+        restaurant.setAdresse(addRestaurantDto.getAdresse());
+        restaurant.setNom(addRestaurantDto.getNom());
 
         restaurantRepository.save(restaurant);
 

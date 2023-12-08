@@ -1,5 +1,6 @@
 package com.fullstack.ds_back_coquin.domain;
 
+import com.fullstack.ds_back_coquin.annotation.Verify;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -22,6 +23,7 @@ public class Evaluation {
     private String commentaire;
 
     @Column(name = "NOTE", columnDefinition = "INTEGER", nullable = false)
+    @Verify
     private int note;
 
     @Column(name = "DATE_CREATION", columnDefinition = "DATE", nullable = false)
@@ -36,5 +38,4 @@ public class Evaluation {
     @JoinColumn(name = "ID_RESTAURANT", nullable = false)
     private Restaurant restaurant;
 
-    //private List<String> urlImage;
 }

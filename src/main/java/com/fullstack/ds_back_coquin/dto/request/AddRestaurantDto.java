@@ -4,4 +4,8 @@ import lombok.Data;
 
 @Data
 public class AddRestaurantDto {
+
+    private String nom;
+
+    private String adresse;
 }

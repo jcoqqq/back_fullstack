@@ -1,6 +1,7 @@
 package com.fullstack.ds_back_coquin.web.controller;
 
 import com.fullstack.ds_back_coquin.domain.Restaurant;
+import com.fullstack.ds_back_coquin.dto.request.AddRestaurantDto;
 import com.fullstack.ds_back_coquin.service.RestaurantService;
 import com.fullstack.ds_back_coquin.web.api.IRestaurantRest;
 import lombok.AllArgsConstructor;
@@ -17,9 +18,9 @@ public class RestaurantController implements IRestaurantRest {
     private RestaurantService restaurantService;
 
     @Override
-    public Restaurant ajouterRestaurant(String nom, String adresse) {
+    public Restaurant ajouterRestaurant(AddRestaurantDto addRestaurantDto) {
         log.info("appel de ajouterRestaurant");
-        Restaurant restaurant = restaurantService.ajouterRestaurant(nom, adresse);
+        Restaurant restaurant = restaurantService.ajouterRestaurant(addRestaurantDto);
         log.info("retour de ajouterRestaurant");
         return restaurant;
     }
@@ -46,4 +47,12 @@ public class RestaurantController implements IRestaurantRest {
         log.info("retour de getAllRestaurant");
         return restaurants;
     }
+
+    /*@Override
+    public double getMoyenneNoteRestaurant(Integer id) {
+        log.info("appel de getAllRestaurant");
+        double moyenne = restaurantService.getMoyenneNoteRestaurant(id);
+        log.info("retour de getAllRestaurant");
+        return moyenne;
+    }*/
 }

@@ -20,7 +20,7 @@ public class RestaurantDto {
 
     private float moyenneEvaluation;
 
-    private EvaluationFinaleDto evaluationFinaleDto;
+    private EvaluationFinaleDto evaluationFinale;
 
     private File image;
 
